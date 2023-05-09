@@ -11,7 +11,11 @@ keymap('n', '<Leader>ss', ':split<Return><C-w>w', opts)
 keymap('n', '<Leader>sv', ':vsplit<Return><C-w>w', opts)
 
 -- file tree
-keymap('n', '<Leader>ft', ':Fern . -reveal=%<CR>', opts) 
+keymap('n', '<Leader>ft', ':Fern . -reveal=% -drawer -toggle -width=40<CR> -show-hidden', opts) 
+
+-- terminal
+keymap('n', '<Leader>tt', ':ToggleTerm direction=float<Return>', opts)
+keymap('t', '<Esc>', '<C-Bslash><C-n>', opts)
 
 -- find files
 local builtin = require('telescope.builtin')
@@ -22,7 +26,10 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- buffer
 vim.keymap.set('n', '<C-n>', '<cmd>bnext<cr>', opts)
-vim.keymap.set('n', '<C-p>', '<cmd>bnext<cr>', opts)
-vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', opts)
+vim.keymap.set('n', '<C-b>', '<cmd>bprev<cr>', opts)
+vim.keymap.set('n', '<leader>dd', '<cmd>bdelete<cr>', opts)
 
-
+-- GoTo code navigation
+vim.keymap.set('n', '<silent>gd', '(coc-definition)', opts)
+vim.keymap.set('n', '<silent>gy', '(coc-type-definition)', opts)
+vim.keymap.set('n', '<silent>gi', '(coc-implementation)', opts)

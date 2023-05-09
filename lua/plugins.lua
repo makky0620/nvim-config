@@ -13,17 +13,17 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  -- My plugins here
   use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
-  use 'lambdalisue/fern.vim'
+
+
   use 'nvim-tree/nvim-web-devicons'
   use {
-        'nvim-treesitter/nvim-treesitter',
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end
   }
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -45,12 +45,35 @@ return require('packer').startup(function(use)
     require("toggleterm").setup()
     end
   }
+  ---- testing
+  use {'vim-test/vim-test', config = function()
+    vim.cmd('let test#strategy = "neovim"')
+    vim.cmd('let test#python#runner = "pytest"')
+    end
+  }
 
   ---- color scheme
   use 'EdenEast/nightfox.nvim'
+  use 'folke/tokyonight.nvim'
+  use { 'catppuccin/nvim', as = 'catppuccin' }
 
-  ---- CoC
-  use 'neoclide/coc.nvim'
+  ---- LSP
+  use {
+    'neoclide/coc.nvim',
+    branch = "release"
+  }
+
+  ---- git
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+        require('gitsigns').setup()
+    end
+  }
+
+  -- file tree
+  use 'lambdalisue/fern.vim'
+  use 'lambdalisue/fern-git-status.vim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

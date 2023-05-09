@@ -2,7 +2,7 @@
 vim.opt.number = true
 
 -- color
-vim.cmd 'colorscheme nightfox'
+vim.cmd 'colorscheme catppuccin-latte'
 
 -- other
 vim.opt.clipboard = 'unnamedplus'

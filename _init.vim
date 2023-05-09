@@ -42,3 +42,6 @@ endif
 
 set number
 set clipboard+=unnamed
+
+" vim-test
+let test#python#runner = 'pytest'
