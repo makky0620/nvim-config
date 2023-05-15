@@ -12,40 +12,33 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
+  -- plugin manager
   use 'wbthomason/packer.nvim'
-  use 'tpope/vim-fugitive'
+
   use 'tpope/vim-repeat'
-
-
   use 'nvim-tree/nvim-web-devicons'
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-      ts_update()
-    end
-  }
+  use {'nvim-treesitter/nvim-treesitter'}
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
-  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
-  use {
-    'goolord/alpha-nvim',
-    requires = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.startify'.config)
-    end
-  }
+  use {'akinsho/bufferline.nvim', tag = "v3.*"}
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
     end
   }
-  ---- testing
+
+  -- status line
+  use 'nvim-lualine/lualine.nvim'
+
+  -- startup screen
+  use {
+    'goolord/alpha-nvim',
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.startify'.config)
+    end
+  }
+    ---- testing
   use {'vim-test/vim-test', config = function()
     vim.cmd('let test#strategy = "neovim"')
     vim.cmd('let test#python#runner = "pytest"')
@@ -56,6 +49,7 @@ return require('packer').startup(function(use)
   use 'EdenEast/nightfox.nvim'
   use 'folke/tokyonight.nvim'
   use { 'catppuccin/nvim', as = 'catppuccin' }
+  use ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
 
   ---- LSP
   use {
@@ -64,6 +58,7 @@ return require('packer').startup(function(use)
   }
 
   ---- git
+  use 'tpope/vim-fugitive'
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
