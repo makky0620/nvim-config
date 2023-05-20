@@ -39,7 +39,7 @@ keymap('n', '<C-b>', ':bprev<cr>', opts)
 keymap('n', '<leader>dd', '<cmd>bdelete<cr>', opts)
 
 -- GoTo code navigation
-keymap('n', '<silent>gd', '(coc-definition)', opts)
-keymap('n', '<silent>gy', '(coc-type-definition)', opts)
-keymap('n', '<silent>gi', '(coc-implementation)', opts)
+keymap('n', '<silent>gd', '<Plug>(coc-definition)', opts)
+keymap('n', '<silent>gy', '<Plug>(coc-type-definition)', opts)
+keymap('n', '<silent>gi', '<Plug>(coc-implementation)', opts)
 
