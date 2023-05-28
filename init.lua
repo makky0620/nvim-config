@@ -1,5 +1,6 @@
-require "plugins"
-require "base"
-require "keymap"
-require "lualine-config"
+require 'base'
+require 'hightlights'
+require 'maps'
+require 'plugins'
+require 'macos'
 

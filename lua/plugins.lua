@@ -1,63 +1,30 @@
-vim.cmd.packadd 'packer.nvim'
+local status, packer = pcall(require, 'packer')
+if (not status) then
+  print('Packer is not installed')
+  return 
+end
 
-return require('packer').startup(function(use)
-  -- plugin manager
+vim.cmd [[packadd packer.nvim]]
+
+packer.startup(function(use)
   use 'wbthomason/packer.nvim'
+  use 'nvim-lua/plenary.nvim' -- Common utilities
 
-  use 'tpope/vim-repeat'
   use 'nvim-tree/nvim-web-devicons'
-  use {'nvim-treesitter/nvim-treesitter'}
+  use 'nvim-lualine/lualine.nvim' -- Statusline
+  use { 'neoclide/coc.nvim', branch = 'release' } -- LSP
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-treesitter/nvim-treesitter',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
-  use {'akinsho/bufferline.nvim', tag = "v3.*"}
-  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup()
-    end
-  }
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-file-browser.nvim'
+  use 'akinsho/nvim-bufferline.lua'
+  use 'akinsho/toggleterm.nvim'
+  use 'f-person/git-blame.nvim'
+  use 'vim-test/vim-test'
 
-  -- status line
-  use 'nvim-lualine/lualine.nvim'
-
-  -- startup screen
-  use {
-    'goolord/alpha-nvim',
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.startify'.config)
-    end
-  }
-    ---- testing
-  use {'vim-test/vim-test', config = function()
-    vim.cmd('let test#strategy = "neovim"')
-    vim.cmd('let test#python#runner = "pytest"')
-    end
-  }
-
-  ---- color scheme
-  use 'EdenEast/nightfox.nvim'
+  -- Color schema
   use 'folke/tokyonight.nvim'
-  use { 'catppuccin/nvim', as = 'catppuccin' }
-  use ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
-
-  ---- LSP
-  use {
-    'neoclide/coc.nvim',
-    branch = "release"
-  }
-
-  ---- git
-  use 'tpope/vim-fugitive'
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-        require('gitsigns').setup()
-    end
-  }
-
-  -- file tree
-  use 'lambdalisue/fern.vim'
-  use 'lambdalisue/fern-git-status.vim'
 
 end)
-
