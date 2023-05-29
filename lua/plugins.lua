@@ -33,5 +33,6 @@ packer.startup(function(use)
 
   -- Color schema
   use 'folke/tokyonight.nvim'
+  use 'sainnhe/everforest'
 
 end)
