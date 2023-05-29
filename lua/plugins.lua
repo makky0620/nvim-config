@@ -23,6 +23,13 @@ packer.startup(function(use)
   use 'akinsho/toggleterm.nvim'
   use 'f-person/git-blame.nvim'
   use 'vim-test/vim-test'
+  use 'goolord/alpha-nvim'
+
+  -- File tree
+  use 'lambdalisue/fern.vim'
+  use 'lambdalisue/fern-git-status.vim'
+  use 'lambdalisue/nerdfont.vim'
+  use 'lambdalisue/fern-renderer-nerdfont.vim'
 
   -- Color schema
   use 'folke/tokyonight.nvim'
