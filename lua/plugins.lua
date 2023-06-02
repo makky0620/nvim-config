@@ -24,6 +24,7 @@ packer.startup(function(use)
   use 'f-person/git-blame.nvim'
   use 'vim-test/vim-test'
   use 'goolord/alpha-nvim'
+  use 'chrisbra/csv.vim'
 
   -- File tree
   use 'lambdalisue/fern.vim'
