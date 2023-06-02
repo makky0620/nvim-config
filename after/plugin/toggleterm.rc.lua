@@ -24,7 +24,10 @@ end
 
 
 local keymap = vim.keymap
-keymap.set('n', '<leader>tt', ':ToggleTerm direction=float<Return>')
+keymap.set('n', '<leader>tf', ':ToggleTerm direction=float<Return>')
+keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical size=100<Return>')
+keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal<Return>')
+keymap.set('n', '<leader>tt', ':ToggleTerm direction=tab<Return>')
 keymap.set('n', '<leader>lg', function()
   lazygit_toggle()
 end)
