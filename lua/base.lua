@@ -19,4 +19,4 @@ vim.opt.si = true -- Smart indent
 vim.opt.wrap = false
 vim.backspace = 'start,eol,indent'
 
-vim.cmd 'colorscheme everforest'
+vim.cmd 'colorscheme tokyonight'

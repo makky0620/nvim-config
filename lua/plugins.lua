@@ -25,6 +25,7 @@ packer.startup(function(use)
   use 'vim-test/vim-test'
   use 'goolord/alpha-nvim'
   use 'chrisbra/csv.vim'
+  use 'norcalli/nvim-colorizer.lua'
 
   -- File tree
   use 'lambdalisue/fern.vim'
