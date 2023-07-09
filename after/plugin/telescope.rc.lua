@@ -43,7 +43,7 @@ telescope.setup {
 telescope.load_extension("file_browser")
 
 local keymap = vim.keymap
-keymap.set('n', ';f',
+keymap.set('n', '<leader>ff',
   function()
     builtin.find_files({
       no_ignore = false,
@@ -61,16 +61,4 @@ keymap.set('n', '<leader>fh', function()
 end)
 keymap.set('n', '<leader>fr', function()
   builtin.resume()
-end)
-keymap.set("n", "<leader>ff", function()
-  telescope.extensions.file_browser.file_browser({
-    path = "%:p:h",
-    cwd = telescope_buffer_dir(),
-    respect_gitignore = false,
-    hidden = true,
-    grouped = true,
-    previewer = false,
-    initial_mode = "normal",
-    layout_config = { height = 40 }
-  })
 end)
