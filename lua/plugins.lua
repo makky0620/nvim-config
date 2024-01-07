@@ -1,7 +1,7 @@
 local status, packer = pcall(require, 'packer')
 if (not status) then
   print('Packer is not installed')
-  return 
+  return
 end
 
 vim.cmd [[packadd packer.nvim]]
@@ -26,6 +26,9 @@ packer.startup(function(use)
   use 'goolord/alpha-nvim'
   use 'chrisbra/csv.vim'
   use 'norcalli/nvim-colorizer.lua'
+  use {
+    'LintaoAmons/scratch.nvim',
+  }
 
   -- File tree
   use 'lambdalisue/fern.vim'
